@@ -21,7 +21,7 @@ logger = set_file_logger("./logs/log_tests.log")
 ])
 def test_find_application(fixture_setup: webdriver.Remote, application) -> None:
     """
-    Тест для пошуку додатку додатків
+    Тест для пошуку додатків
     """
     logger.info(f"Test find '{application}' starting....")
     driver = fixture_setup
