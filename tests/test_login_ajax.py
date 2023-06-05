@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from appium import webdriver
 
-from utils import scroll, count_screen, check_element, ajax_app
+from utils import scroll, ajax_app
 from logger import set_file_logger
 
 import os
