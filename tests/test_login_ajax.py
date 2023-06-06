@@ -34,7 +34,7 @@ def test_successful_login_ajax(fixture_setup: webdriver.Remote) -> None:
         'logs': 'Повідомити про проблему',
         'camera': 'Відеоспостереження'
     }
-    logger.info("Test ajax 'Ajax', start checking sidebar")
+    logger.info("Test 'Ajax', start checking sidebar")
     for sidebar_id, sidebar_name in sidebar_elements.items():
         element = wait.until(EC.presence_of_element_located(
             (AppiumBy.ID, f'com.ajaxsystems:id/{sidebar_id}')))
