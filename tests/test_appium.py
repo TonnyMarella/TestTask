@@ -19,7 +19,7 @@ logger = set_file_logger("./logs/log_tests.log")
     'Тривога!',
     'Дія'
 ])
-def test_find_application(fixture_setup: webdriver.Remote, application) -> None:
+def test_find_application(fixture_setup: webdriver.Remote, application: str) -> None:
     """
     Тест для пошуку додатків
     """
