@@ -34,6 +34,7 @@ def open_ajax(driver: webdriver.Remote) -> None:
         ajax.click()
         logger.info("Test ajax 'Ajax' opened")
     except Exception as e:
+        logger.error(f"Test 'Ajax' some problem with open 'Ajax', error: \n {e}")
         pytest.fail(f"Test 'Ajax' some problem with open 'Ajax', error: \n {e}")
 
 
@@ -58,4 +59,5 @@ def login_ajax(driver: webdriver.Remote, email_for_login: str, password_for_logi
             (AppiumBy.ID, 'com.ajaxsystems:id/bottomContent')))
         enter.find_element(AppiumBy.CLASS_NAME, 'android.view.View').click()
     except Exception as e:
+        logger.error(f"Test 'Ajax' some problem with logging, error: \n {e}")
         pytest.fail(f"Test 'Ajax' some problem with logging, error: \n {e}")
