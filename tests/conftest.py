@@ -2,11 +2,14 @@ from appium import webdriver
 from typing import Union
 
 from logger import set_file_logger
+from dotenv import load_dotenv
 
 import pytest
 import subprocess
 
 import os
+
+load_dotenv()
 
 logger = set_file_logger("./logs/log_tests.log")
 

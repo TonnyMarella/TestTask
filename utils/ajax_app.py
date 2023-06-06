@@ -1,13 +1,14 @@
-import pytest
-
 from .count_screen import get_number_of_screen
 from .check_element import check_element_exists
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from appium.webdriver.common.appiumby import AppiumBy
 from appium import webdriver
+from typing import Optional
 
 from logger import set_file_logger
+
+import pytest
 
 logger = set_file_logger("./logs/log_tests.log")
 
@@ -61,3 +62,16 @@ def login_ajax(driver: webdriver.Remote, email_for_login: str, password_for_logi
     except Exception as e:
         logger.error(f"Test 'Ajax' some problem with logging, error: \n {e}")
         pytest.fail(f"Test 'Ajax' some problem with logging, error: \n {e}")
+
+
+def logout_from_ajax(driver: webdriver.Remote, in_sidebar: Optional[bool] = None) -> None:
+    wait = WebDriverWait(driver, 15)
+    if not in_sidebar:
+        wait.until(EC.presence_of_element_located(
+            (AppiumBy.ID, 'com.ajaxsystems:id/menuDrawer'))).click()
+
+    logger.info("Test 'Ajax' finished and we are in account, start logout...")
+    wait.until(EC.presence_of_element_located(
+        (AppiumBy.ID, 'com.ajaxsystems:id/settings'))).click()
+    wait.until(EC.presence_of_element_located(
+        (AppiumBy.ID, 'com.ajaxsystems:id/accountInfoLogoutNavigate'))).click()
